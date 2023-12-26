@@ -6,7 +6,11 @@ if [ "$#" -ne 1 ]; then
     exit 1
 fi
 
-# Mirror file operations
-python3 ed_move_delete.py "$1"
+# Find the directory where the script is located
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+
+
+# Run the Python script using its absolute path
+python3 "$SCRIPT_DIR/src/ed_move_delete.py" "$@"
 
 echo "Mirroring completed."
