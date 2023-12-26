@@ -3,7 +3,7 @@ import subprocess
 from PIL import Image
 import sys
 
-def resize_image(input_path, output_path, max_size=1024):
+def resize_image(input_path, output_path, max_size=2048):
     if input_path.suffix.lower() == '.arw':
         # Using ffmpeg to convert and resize the ARW file
         cmd = f"magick '{input_path}' -resize '{max_size}x{max_size}>' '{output_path}'"
